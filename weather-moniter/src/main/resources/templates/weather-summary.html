@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Weather Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3f51b5;
+        }
+        .weather-details {
+            list-style: none;
+            padding: 0;
+        }
+        .weather-details li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Weather Summary for <span th:text="${weatherData.city}"></span></h1>
+        <div>
+            <p>Main Condition: <span th:text="${weatherData.mainCondition}"></span></p>
+            <p>Temperature: <span th:text="${weatherData.temperatureKelvin}"></span> K</p>
+            <p>Feels Like: <span th:text="${weatherData.feelsLikeKelvin}"></span> K</p>
+            <p>Date: <span th:text="${#dates.format(weatherData.date, 'yyyy-MM-dd')}"></span></p>
+        </div>
+    </div>
+</body>
+</html>
